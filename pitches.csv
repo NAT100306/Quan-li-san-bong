@@ -1,0 +1,6 @@
+﻿id,name,type,price_per_hour,status,description
+d0c82683-4ce7-4c8e-98f9-5632a54bcee8,Sân 5A - Cỏ nhân tạo,MINI_5,250000,ACTIVE,"Sân 5 người tiêu chuẩn, cỏ mới thay"
+bc7f37fb-6b08-480c-b432-f7f8b5095862,Sân 5B - Có mái che,MINI_5,300000,ACTIVE,"Sân 5 người, có mái che mát mẻ"
+a6ab21f1-a8dc-4e9e-94ba-885933656984,Sân 7A - Gần khán đài,MINI_7,400000,ACTIVE,"Sân 7 người, bóng đèn LED sáng"
+08236838-6764-49b0-a386-2b35216617fc,Sân 7B - Góc trong,MINI_7,350000,ACTIVE,"Sân 7 người, yên tĩnh"
+fd15e5c5-e7a3-4186-8321-84e6dbbe3fa6,Sân 11 Lớn,STANDARD_11,800000,MAINTENANCE,Sân 11 người đang bảo trì hệ thống thoát nước

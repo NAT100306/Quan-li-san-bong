@@ -1,0 +1,6 @@
+﻿id,email,name,phone,role,created_at
+914951df-1b82-4f67-99c4-5fa7df11eabc,admin@sanfootball.com,Nguyễn Văn Admin,0901234567,ADMIN,2026-06-07T09:30:32.653Z
+db0fb6bb-529f-4540-9184-67e792bd94d7,staff1@sanfootball.com,Trần Thị Staff,0987654321,STAFF,2026-06-07T09:30:32.653Z
+5f03aef4-f327-4d3f-beae-46db4fda5bb6,customer1@gmail.com,Lê Khách Hàng,0911222333,CUSTOMER,2026-06-07T09:30:32.653Z
+0183ff30-2174-4a80-bcff-ccba7f204e36,customer2@gmail.com,Phạm Vui Chơi,0933444555,CUSTOMER,2026-06-07T09:30:32.653Z
+e9e1726a-9736-440e-9432-534f92c572d9,customer3@gmail.com,Đặng Thể Thao,0944555666,CUSTOMER,2026-06-07T09:30:32.653Z

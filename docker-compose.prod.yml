@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  # Dịch vụ Web Next.js (chạy port 3000)
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: football-pitch-web
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: "file:/app/data/dev.db" # Lưu dữ liệu vào volume riêng để không bị mất khi build lại container
+      JWT_SECRET: "prod-super-secret-key-football-pitch-2026-xyz"
+      NEXT_PUBLIC_APP_URL: "http://localhost:3000" # Hãy cập nhật tên miền thật của bạn khi cấu hình Nginx
+      SMTP_HOST: "smtp.gmail.com"
+      SMTP_PORT: "587"
+      SMTP_USER: "test@gmail.com"
+      SMTP_PASS: "xxxx xxxx xxxx xxxx"
+      SMTP_FROM: "Quản Lý Sân Bóng <noreply@yourdomain.com>"
+    volumes:
+      - sqlite_data:/app/data
+
+volumes:
+  sqlite_data:

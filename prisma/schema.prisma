@@ -1,0 +1,103 @@
+datasource db {
+  provider = "postgresql"
+}
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  ADMIN
+  STAFF
+  CUSTOMER
+}
+
+enum PitchType {
+  MINI_5
+  MINI_7
+  STANDARD_11
+}
+
+enum PitchStatus {
+  ACTIVE
+  MAINTENANCE
+  INACTIVE
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+enum PaymentMethod {
+  CASH
+  BANK_TRANSFER
+  MOMO
+  VNPAY
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
+model User {
+  id              String    @id @default(uuid())
+  email           String    @unique
+  password        String
+  name            String
+  phone           String?
+  role            Role      @default(CUSTOMER)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  bookings        Booking[] @relation("CustomerBookings")
+  handledBookings Booking[] @relation("StaffBookings")
+}
+
+model Pitch {
+  id           String      @id @default(uuid())
+  name         String
+  type         PitchType
+  pricePerHour Decimal     @db.Decimal(10, 2)
+  status       PitchStatus @default(ACTIVE)
+  description  String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  bookings     Booking[]
+}
+
+model Booking {
+  id            String        @id @default(uuid())
+  pitchId       String
+  pitch         Pitch         @relation(fields: [pitchId], references: [id], onDelete: Cascade)
+  customerId    String
+  customer      User          @relation("CustomerBookings", fields: [customerId], references: [id], onDelete: Cascade)
+  staffId       String?
+  staff         User?         @relation("StaffBookings", fields: [staffId], references: [id], onDelete: SetNull)
+  startTime     DateTime
+  endTime       DateTime
+  status        BookingStatus @default(PENDING)
+  totalPrice    Decimal       @db.Decimal(10, 2)
+  checkInCode   String        @unique @default(uuid())
+  checkInStatus Boolean       @default(false)
+  checkInAt     DateTime?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  payments      Payment[]
+}
+
+model Payment {
+  id            String        @id @default(uuid())
+  bookingId     String
+  booking       Booking       @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  amount        Decimal       @db.Decimal(10, 2)
+  paymentMethod PaymentMethod @default(CASH)
+  status        PaymentStatus @default(PENDING)
+  transactionId String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
