@@ -75,18 +75,5 @@ Truy cập `http://localhost:3000` trên trình duyệt để sử dụng.
 
 ---
 
-## 🌐 Hướng Dẫn Triển Khai (Deploy lên Vercel)
 
-Dự án này được tối ưu để triển khai trực tiếp lên Vercel (đã gỡ bỏ Prisma Runtime dependency để tối ưu tốc độ và không bị lỗi kết nối IPv6).
-
-1. Truy cập Vercel và chọn **Import Project** từ repository GitHub của bạn.
-2. Tại phần **Environment Variables**, hãy thêm đúng 5 biến bắt buộc sau (chỉ copy giá trị từ file `.env` cục bộ):
-   * `NEXT_PUBLIC_SUPABASE_URL`
-   * `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   * `SUPABASE_SERVICE_ROLE_KEY`
-   * `JWT_SECRET`
-   * `NEXT_PUBLIC_APP_URL` (Sửa thành tên miền Vercel cấp cho bạn, ví dụ: `https://ten-ung-dung.vercel.app`)
-3. Bấm **Deploy** và chờ đợi Vercel hoàn tất quá trình build.
-
----
 *Phát triển bởi đội ngũ đam mê công nghệ.*
