@@ -75,5 +75,25 @@ Truy cập `http://localhost:3000` trên trình duyệt để sử dụng.
 
 ---
 
+## 🧪 Kiểm Thử
 
-*Phát triển bởi đội ngũ đam mê công nghệ.*
+```bash
+npm test               # Chạy toàn bộ test suite
+npm run test:coverage  # Chạy tests + báo cáo coverage
+```
+
+**Kết quả:** 34 tests pass (JWT library, className utility, Middleware route guard)
+
+---
+
+## 📚 Tài Liệu
+
+| Tài liệu | Nội dung |
+|---|---|
+| [📊 Báo cáo dự án](./docs/report.md) | Phân tích yêu cầu, thiết kế, kiến trúc, hướng dẫn demo |
+| [📐 UML Diagrams](./docs/uml.md) | Use Case, Class, Sequence, Architecture diagrams |
+| [🚀 Hướng dẫn Deploy](./deployment_guide.md) | Hướng dẫn deploy lên Vercel & Docker |
+
+---
+
+*Phát triển bởi đội ngũ đam mê công nghệ — NAT100306.*
